@@ -72,8 +72,9 @@ COPY --chown=bamboo:bamboo bamboo-update-capability.sh bamboo-update-capability.
 RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK 1.8" ${JAVA_HOME}/bin/java
 RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven 3.3" /usr/share/maven
 RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.atlas-package.executable" /usr/bin/atlas-package
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.atlas-clean.executable" /usr/bin/atlas-clean
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.atlas-package" /usr/bin/atlas-package
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.atlas-clean" /usr/bin/atlas-clean
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.atlas-integration-test" /usr/bin/atlas-integration-test
 RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.node.Node.js 16" /usr/bin/node
 
 COPY --chown=bamboo:bamboo runAgent.sh runAgent.sh
